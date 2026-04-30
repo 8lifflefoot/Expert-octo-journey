@@ -1,0 +1,9 @@
+import requests
+import sys
+URL = "https://visdeurbel.nl/en/" 
+try: response = requests.get(URL, timeout=10)
+if response.status_code == 200: print (f"SUCCESS; {URL} is up!" ) 
+else: print (f"FAILED: {URL} returned status {response.status_code}")
+sys.exit(1) #this tells GitHub the action failed
+except Exception as e: print(f"Error: Could not reach {URL}. Details: {e}")
+sys.exit(1)
